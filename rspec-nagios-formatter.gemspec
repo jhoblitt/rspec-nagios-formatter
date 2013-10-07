@@ -1,9 +1,9 @@
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
-require "rspec/core/formatters/nagios_formatter/version"
+require "rspec/nagios/version"
 
 Gem::Specification.new do |s|
   s.name              = "rspec-nagios-formatter"
-  s.version           = RSpec::Core::Formatters::NagiosFormatter::Version::STRING
+  s.version           = RSpec::Nagios::VERSION
   s.platform          = Gem::Platform::RUBY
   s.authors           = ["Joshua Hoblitt"]
   s.email             = ["jhoblitt@cpan.org"]

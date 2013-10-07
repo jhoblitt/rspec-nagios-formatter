@@ -1,7 +1,7 @@
-require 'rspec'
+require 'rspec/nagios'
 require 'rspec/core/formatters/base_formatter'
 
-class RSpec::Core::Formatters::NagiosFormatter < RSpec::Core::Formatters::BaseFormatter
+class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
   def initialize(output)
     super(output)
   end

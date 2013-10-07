@@ -1,9 +1,8 @@
 require 'spec_helper'
-require 'rspec_nagios_formatter'
 
-describe RSpecNagiosFormatter do
+describe RSpec::Nagios::Formatter do
   let(:output) { StringIO.new }
-  let(:formatter) { RSpecNagiosFormatter.new(output) }
+  let(:formatter) { RSpec::Nagios::Formatter.new(output) }
 
   describe "#summary_line" do
     context 'status OK' do
