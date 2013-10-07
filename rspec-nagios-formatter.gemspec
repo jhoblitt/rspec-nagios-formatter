@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency("rake", ">= 10.0.0")
 
   s.rubygems_version = ">= 1.6.1"
-#  s.files            = `git ls-files`.split("\n")
-#  s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
+  s.files            = `git ls-files`.split("\n")
+  s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
 #  s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_path     = "lib"
 end
