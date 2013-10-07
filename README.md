@@ -3,6 +3,12 @@ Ruby rspec-nagios-formatter Gem
 
 [![Build Status](https://travis-ci.org/jhoblitt/rspec-nagios-formatter.png)](https://travis-ci.org/jhoblitt/rspec-nagios-formatter)
 
+
+Description
+-----------
+
+This `gem` provides a simple [RSpec](http://rspec.info/) [custom formatter](https://www.relishapp.com/rspec/rspec-core/docs/formatters/custom-formatters) that reports `rspec` results in the Nagios/Icigna [plugin](http://docs.icinga.org/latest/en/pluginapi.html#outputspec) output format.
+
 Install
 -------
 
@@ -15,10 +21,18 @@ Install
     bundle install
     bundle exec rake install
 
+
 Usage
 -----
 
     rspec -f RSpec::Nagios::Formatter
+
+See the documentation on [rspec --format](https://www.relishapp.com/rspec/rspec-core/v/2-6/docs/command-line/format-option)
+for more information.
+
+
+Demo
+----
 
 Demonstration of running this gem's `rspec` tests with it's own formatter
 (after it's been installed).
