@@ -29,3 +29,15 @@ Scenario: run a failing rspec test
     """
     ^RSPEC Critical - 1 example, 1 failures, finished in 0.\d+ seconds | examples=1 passing=0 failures=1 pending=0 conformance=0% time=0.\d+s$
     """
+
+Scenario: rspec dies
+  Given a file named "trivial_spec.rb" with:
+    """
+    raise RuntimeError
+    """
+  When I run `check_rspec trivial_spec.rb`
+  Then the exit status should be 2
+  And it should fail with regexp:
+    """
+    ^RSPEC Critical -.+RuntimeError.+$
+    """

@@ -36,7 +36,14 @@ rescue Timeout::Error
   exit EXIT_CRITICAL
 end
 
-puts cmd_stdout
+if cmd_stdout.length > 0
+  puts cmd_stdout
+else
+  # if nothing was output on stdout, print the first line of stderr
+  puts "RSPEC Critical - #{cmd_stderr.split("\n")[0]}"
+  exit EXIT_CRITICAL
+end
+
 unless cmd_status.exitstatus == 0
   exit EXIT_CRITICAL
 end
