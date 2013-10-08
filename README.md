@@ -55,3 +55,10 @@ Support
 -------
 
 Please log tickets and issues at [github](https://github.com/jhoblitt/rspec-nagios-formatter)
+
+See Also
+--------
+
+* [cucumber-nagios](http://auxesis.github.io/cucumber-nagios/)
+* [RSpec](https://github.com/rspec/rspec)
+* [Icinga Plugins](http://docs.icinga.org/latest/en/plugins.html)
