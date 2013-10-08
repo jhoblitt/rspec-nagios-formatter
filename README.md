@@ -25,6 +25,24 @@ Install
 Usage
 -----
 
+The formatter may be used by either passing the `-f|--format` flag to `rspec` or with the included `check_rspec` script.  The later sets the appropriate exit status for a failing Nagios/Icinga plugin.
+
+### `check_rspec`
+
+    Usage: check_rspec [options] [--] [passed to rspec]
+
+    Specific options:
+        -t, --timeout TIMEOUT            default: 30.0 (seconds)
+        -h, --help                       Show this message
+
+Any options to `check_rspec` not prefixed with `-` or `--` are passed directly
+on to the `rspec` utility.  If you need to pass an option flag you may
+terminated `check_rspec`'s option parsing with a bare `--`. 
+
+    check_rspec -- -e 'foo' trivial_spec.rb
+
+### `rspec`
+
     rspec -f RSpec::Nagios::Formatter
 
 See the documentation on [rspec --format](https://www.relishapp.com/rspec/rspec-core/v/2-6/docs/command-line/format-option)
