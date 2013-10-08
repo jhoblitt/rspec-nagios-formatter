@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'open3'
+require 'timeout'
+
+EXIT_CRITICAL = 2
+
+options = { :timeout => 30.0 }
+option_parser = OptionParser.new do |opts|
+  opts.banner = "Usage: check_rspec [options] [--] [passed to rspec]"
+  opts.separator ""
+  opts.separator "Specific options:"
+
+  opts.on("-t", "--timeout TIMEOUT", "default: 30.0 (seconds)", Float) do |t|
+    options[:timeout] = t
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+
+option_parser.parse!
+
+cmd  = ['rspec', '--format', 'RSpec::Nagios::Formatter', ARGV]
+cmd_stdout, cmd_stderr, cmd_status = nil
+
+begin
+  Timeout::timeout(options[:timeout]) {
+    cmd_stdout, cmd_stderr, cmd_status = Open3.capture3(cmd.join(' '))
+  }
+rescue Timeout::Error
+  puts "RSPEC Critical - timeout after #{options[:timeout]} seconds"
+  exit EXIT_CRITICAL
+end
+
+puts cmd_stdout
+unless cmd_status.exitstatus == 0
+  exit EXIT_CRITICAL
+end

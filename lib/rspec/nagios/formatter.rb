@@ -14,17 +14,16 @@ class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
   def summary_line(duration, example_count, failure_count, pending_count)
     passing_count = example_count - failure_count
     # conformance is expressed as a percentage
-    # if example_count is zero we need to aviod div by 0
+    # if example_count is zero we need to avoid div by 0
     if example_count > 0
       conformance  = passing_count / example_count.to_f
       conformance *= 100
-      #conformance   = "%.2f" % conformance
       conformance  = conformance.round(0)
     else
       conformance  = 0
     end
     # limit duration precision to microseconds
-    time          = duration.round(6)
+    time = duration.round(6)
 
     summary = 'RSPEC'
     if failure_count == 0
