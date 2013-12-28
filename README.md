@@ -80,3 +80,7 @@ See Also
 * [cucumber-nagios](http://auxesis.github.io/cucumber-nagios/)
 * [RSpec](https://github.com/rspec/rspec)
 * [Icinga Plugins](http://docs.icinga.org/latest/en/plugins.html)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jhoblitt/rspec-nagios-formatter/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
