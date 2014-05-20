@@ -35,6 +35,7 @@ class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
     else
       summary << " Critical"
     end
+
     summary << " - " << pluralize(example_count, "example")
     summary << ", " << pluralize(failure_count, "failure")
     summary << ", #{pending_count} pending" if pending_count > 0
@@ -46,9 +47,10 @@ class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
     summary << " pending=#{pending_count}"
     summary << " conformance=#{conformance}%"
     summary << " time=#{time}s"
-    if failed_examples.size > 0
+
+    if failed_examples.any?
       summary << "\n"
-      summary << "#{failed_examples.map { |e| "#{e.metadata.send(:location)} #{e.full_description}" }.join("\n") }"
+      summary << "#{failed_examples.map { |e| "#{e.location} #{e.full_description}" }.join("\n") }"
     end
 
     summary
