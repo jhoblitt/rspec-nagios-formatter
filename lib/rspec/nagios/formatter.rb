@@ -11,6 +11,10 @@ class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
     output.puts summary_line(duration, example_count, failure_count, pending_count)
   end
 
+  def rounding(float, precision)
+    return ((float * 10**precision).round.to_f) / (10**precision)
+  end
+
   def summary_line(duration, example_count, failure_count, pending_count)
     passing_count = example_count - failure_count
     # conformance is expressed as a percentage
@@ -18,12 +22,12 @@ class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
     if example_count > 0
       conformance  = passing_count / example_count.to_f
       conformance *= 100
-      conformance  = conformance.round(0)
+      conformance  = conformance.round
     else
       conformance  = 0
     end
     # limit duration precision to microseconds
-    time = duration.round(6)
+    time = rounding(duration, 6)
 
     summary = 'RSPEC'
     if failure_count == 0
@@ -42,6 +46,10 @@ class RSpec::Nagios::Formatter < RSpec::Core::Formatters::BaseFormatter
     summary << " pending=#{pending_count}"
     summary << " conformance=#{conformance}%"
     summary << " time=#{time}s"
+    if failed_examples.size > 0
+      summary << "\n"
+      summary << "#{failed_examples.map { |e| "#{e.metadata.send(:location)} #{e.full_description}" }.join("\n") }"
+    end
 
     summary
   end

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
-require 'open3'
+require 'open3_backport'
 require 'timeout'
 
 EXIT_CRITICAL = 2
