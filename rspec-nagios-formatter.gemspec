@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.8.7"
   s.add_runtime_dependency("rspec-core", ">= 2.0.0")
   s.add_development_dependency("rspec", ">= 2.0.0")
+  s.add_development_dependency("open3_backport", ">= 0.0.3")
   s.add_development_dependency("rspec-expectations", ">= 2.0.0")
   s.add_development_dependency("rspec-mocks", ">= 2.0.0")
   s.add_development_dependency("rake", ">= 10.0.0")
