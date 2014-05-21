@@ -2,7 +2,7 @@
 
 require 'optparse'
 
-if RUBY_VERSION < 1.9
+if RUBY_VERSION < "1.9"
   require 'open3_backport'
 else
   require 'open3'
