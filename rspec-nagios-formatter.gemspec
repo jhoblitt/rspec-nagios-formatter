@@ -12,9 +12,10 @@ Gem::Specification.new do |s|
   s.description       = %q{A RSpec formatter for the Nagios/Icinga plugin format}
   s.license           = "Apache 2.0"
 
-  s.required_ruby_version = ">= 1.9.2"
+  s.required_ruby_version = ">= 1.8.7"
   s.add_runtime_dependency("rspec-core", ">= 2.0.0")
   s.add_development_dependency("rspec", ">= 2.0.0")
+  s.add_development_dependency("open3_backport", ">= 0.0.3")
   s.add_development_dependency("rspec-expectations", ">= 2.0.0")
   s.add_development_dependency("rspec-mocks", ">= 2.0.0")
   s.add_development_dependency("rake", ">= 10.0.0")
@@ -25,4 +26,6 @@ Gem::Specification.new do |s|
   s.test_files       = `git ls-files -- {spec,features}/*`.split("\n")
   s.executables      = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_path     = "lib"
+
+  s.extensions = ["ext/mkrf_conf.rb"]
 end

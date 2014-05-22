@@ -12,6 +12,12 @@ This `gem` provides a simple [RSpec](http://rspec.info/) [custom formatter](http
 Install
 -------
 
+### requirements
+
+[rake](https://github.com/jimweirich/rake) is required for the install process. It can be installed running:
+
+    gem install rake
+
 ### via rubygems
 
     gem install rspec-nagios-formatter

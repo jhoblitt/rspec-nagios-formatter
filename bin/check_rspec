@@ -1,7 +1,13 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
-require 'open3'
+
+if RUBY_VERSION < "1.9"
+  require 'open3_backport'
+else
+  require 'open3'
+end
+
 require 'timeout'
 
 EXIT_CRITICAL = 2
